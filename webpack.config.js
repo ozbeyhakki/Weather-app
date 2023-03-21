@@ -1,21 +1,20 @@
-var webapck= require('webpack')
+var webpack = require('webpack');
+
 module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
     './app/app.jsx'
   ],
-  externals:{
-    jquery:'jQuery'
+  externals: {
+    jquery: 'jQuery'
   },
-  plugins:[
-    new webapck.ProvidePlugin({
+  plugins: [
+    new webpack.ProvidePlugin({
       '$': 'jquery',
-      'jQuery':'jquery'
+      'jQuery': 'jquery'
     })
   ],
-
-  
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -30,7 +29,10 @@ module.exports = {
       WeatherMessage: 'app/components/WeatherMessage.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
-      openWeatherMap: 'app/api/openWeatherMap.jsx'
+      openWeatherMap: 'app/api/openWeatherMap.jsx',
+      ErrorModal: 'app/components/ErrorModal.jsx',
+      applicationStyles: 'app/styles/app.css'
+
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -46,5 +48,5 @@ module.exports = {
       }
     ]
   },
-  devtool:'eval-source-map'
+  devtool: 'cheap-module-eval-source-map'
 };
